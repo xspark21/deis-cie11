@@ -1,0 +1,11 @@
+[project]
+name = "deis-cie11"
+version = "0.1.0"
+description = "Estructuración de registros DEIS de urgencia usando CIE-11"
+readme = "README.md"
+requires-python = ">=3.14"
+
+dependencies = [
+    "fastexcel>=0.20.2",
+    "polars>=1.40.1",
+]
