@@ -137,10 +137,10 @@ def construir_resolver() -> pl.DataFrame:
             how="left",
         )
         .with_columns(
-            pl.when(pl.col("descripcion").is_null())
-              .then(pl.col("grupo_epidemiologico"))
-              .otherwise(pl.col("descripcion"))
-              .alias("descripcion_cie11")
+            pl.col("descripcion")
+            .fill_null(pl.col("grupo_epidemiologico"))
+            .alias("descripcion_cie11"),
+            pl.col("nombre_capitulo").fill_null("-")
         )
         .drop("descripcion")
     )
